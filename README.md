@@ -1,2 +1,2 @@
 # checkout_ecommerce_challenge
-Checkout ecommerce
+Checkout e-commerce challenge
