@@ -3,7 +3,7 @@ Checkout e-commerce challenge
 
 ## Access kafka with ui
 
-- [nodered](localhost:8080)
+- [nodered](http://localhost:8080)
 
 ## Initialize environment
 
