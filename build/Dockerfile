@@ -35,8 +35,7 @@ FROM node:22-alpine AS prod-deps
 WORKDIR /app
 COPY package*.json ./
 RUN --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
-RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev --omit=optional --ignore-scripts
+    npm ci --omit=dev --omit=optional --ignore-scripts
 
 #############################################
 # 5) APPRUNTIME: distroless, nonroot
