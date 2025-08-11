@@ -3,7 +3,7 @@ Checkout e-commerce challenge
 
 ## Access kafka with ui
 
-- [nodered](http://localhost:8080)
+- [redpanda](http://localhost:8080)
 
 ## Initialize environment
 
