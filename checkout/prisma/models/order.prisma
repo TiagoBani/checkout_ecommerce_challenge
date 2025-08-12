@@ -1,0 +1,16 @@
+model Order {
+    id          String   @id @default(uuid())
+    user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId      String   @map("user_id")
+    amount      Decimal  @db.Decimal(12, 2)
+    cardHolder  String   @map("card_holder")
+    cardNumber  String   @map("card_number")
+    cardBranch  String   @map("card_branch")
+    cardExpires String   @map("card_expires")
+    items       Item[]   @relation("OrderItems")
+
+    createdAt  DateTime @default(now())   @map("created_at")
+    updatedAt  DateTime @updatedAt        @map("updated_at")
+
+    @@map("orders")
+}
