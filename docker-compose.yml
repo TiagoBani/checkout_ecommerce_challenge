@@ -121,18 +121,18 @@ services:
     networks:
       - ecommerce_bridge
 
-  orders:
+  expeditions:
     build:
-      context: ./orders
+      context: ./expeditions
       dockerfile: ../build/Dockerfile
-    container_name: svc_orders
+    container_name: svc_expeditions
     restart: unless-stopped
     init: true
     environment:
       NODE_ENV: development
       KAFKA_BROKERS: kafka:9092
-      KAFKA_CLIENT_ID: orders
-      KAFKA_GROUP_ID: orders-group
+      KAFKA_CLIENT_ID: expeditions
+      KAFKA_GROUP_ID: expeditions-group
       POSTGRES_HOST: postgres
       POSTGRES_PORT: "5432"
       POSTGRES_USER: postgres
@@ -188,7 +188,7 @@ services:
     environment:
       NODE_ENV: development
       PAYMENTS_URL: http://payments:3000
-      ORDERS_URL: http://orders:3000
+      EXPEDITIONS_URL: http://expeditions:3000
       CHECKOUT_URL: http://checkout:3000
       HEALTH_PATH: /
     ports:
@@ -196,7 +196,7 @@ services:
     depends_on:
       payments:
         condition: service_healthy
-      orders:
+      expeditions:
         condition: service_healthy
       checkout:
         condition: service_healthy
