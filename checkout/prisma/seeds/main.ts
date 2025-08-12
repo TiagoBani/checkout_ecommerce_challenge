@@ -24,7 +24,7 @@ async function runAll() {
     console.log(`→ Running seed: ${file}`);
     const mod = (await import(full)) as SeedModule;
     if (typeof mod.default !== 'function') {
-      throw new Error(`Seed ${file} não exporta default async function`);
+      throw new Error(`Seed ${file} does not export a default async function`);
     }
     await mod.default({ prisma, log: console.log });
     console.log(`✓ Done: ${file}`);
